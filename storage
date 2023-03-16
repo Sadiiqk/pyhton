@@ -1,0 +1,92 @@
+# Create a Node to hold the data, then put it at the head of the list.
+def push(self, data):
+    # allocate space for new node in heap
+    newNode = Node(data)
+    
+    # check if stack/heap is full.
+    # Inserting an element would lead to stack overflow
+    if not newNode:
+        print("Log of negative number is: ", errno)
+        print("Cause of error: ", strerror(errno))
+        exit(-1)
+        
+    # checks if storage is empty
+    # and sets the new value to given push() parameter
+    if not self.head:
+        self.head = newNode
+    else:
+        newNode.next = self.head
+        self.head = newNode
+    
+# Remove the head Node and return its data.
+def pop(self):
+    if not self.head:
+        return False
+    else:
+        data = self.head.data
+        self.head = self.head.next
+        return data
+    
+# Return the data from the head Node, without removing it.
+def peek(self):
+    if not self.head:
+        return False
+    else:
+        return self.head.data
+    
+# Return True if the list is empty, otherwise False
+def isEmpty(self):
+    return self.head == None
+
+# Swaps the nodes at position i and j.
+# Returns true if successful, otherwise false (e.g. outside range)
+def swap(self, i, j):
+    if not self.head:
+        return False
+    
+    temp = self.head
+    prev_i = None
+    prev_j = None
+    node_i = None
+    node_j = None
+    
+    # Finding nodes and previous nodes
+    pos = 0
+    while temp:
+        if pos == i:
+            node_i = temp
+            prev_i = prev_temp
+        elif pos == j:
+            node_j = temp
+            prev_j = prev_temp
+        prev_temp = temp
+        temp = temp.next
+        pos += 1
+    
+    # Swap nodes
+    if not node_i or not node_j:
+        return False
+    
+    if prev_i:
+        prev_i.next = node_j
+    else:
+        self.head = node_j
+        
+    if prev_j:
+        prev_j.next = node_i
+    else:
+        self.head = node_i
+        
+    temp = node_i.next
+    node_i.next = node_j.next
+    node_j.next = temp
+    
+    return True
+
+# Prints the stack
+def printList(self):
+    temp = self.head
+    while temp:
+        print(temp.data, end=" ")
+        temp = temp.next
+    print()
